@@ -1,0 +1,5 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="newsletter_subscriber_save_after">
+    <observer name="coupon_newsletter_subscriber" instance="Coupon\Newsletter\Observer\Discount" />
+</event>
+</config>

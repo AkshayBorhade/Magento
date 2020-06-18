@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Custom_Appointment::appointment"
+             title="Custom"
+             translate="title"
+             module="Custom_Appointment"
+             sortOrder="60"
+             resource="Custom_Appointment::appointment"
+        />
+        <add
+            id="Custom_Appointment::listing"
+            title="Appointment"
+            translate="title"
+            module="Custom_Appointment"
+            sortOrder="20"
+            parent="Custom_Appointment::appointment"
+            action="appointment/index/index"
+            resource="Custom_Appointment::appointment"
+        />
+      
+    </menu>
+</config>

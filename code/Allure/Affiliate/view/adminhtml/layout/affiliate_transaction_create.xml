@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+ 
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="affiliate_transaction_create_customer_block"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Allure\Affiliate\Block\Adminhtml\Transaction\Create" name="affiliate_transaction_create">
+                <block class="Allure\Affiliate\Block\Adminhtml\Transaction\Create\Form" template="transaction/create/form.phtml" name="transaction_create_form" as="form">
+                    <block class="Allure\Affiliate\Block\Adminhtml\Transaction\Create\Customer" template="create_abstract.phtml" name="customer.grid.container"/>
+                    <block class="Allure\Affiliate\Block\Adminhtml\Transaction\Create\Tab\Transaction" name="data"/>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

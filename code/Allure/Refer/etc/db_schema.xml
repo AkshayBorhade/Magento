@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="Allure_Refer" resource="default" engine="innodb" comment="Allure Refer">
+        <column xsi:type="int" name="refer_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Refer Id"/>
+        <column xsi:type="int" name="customer_id" padding="10" unsigned="true" nullable="true" identity="false"
+                comment="Customer Id"/>
+        <column xsi:type="timestamp" name="refer_date" default="CURRENT_TIMESTAMP" on_update="false" nullable="true"
+                comment="Refer Date"/>
+        <column xsi:type="varchar" name="email" nullable="true" length="255" comment="Email"/>
+        <column xsi:type="varchar" name="name" nullable="true" length="255" comment="Name Of Customer"/>
+        <column xsi:type="varchar" name="referral_code" nullable="true" length="255" comment="Referral Id"/>
+        <column xsi:type="varchar" name="status" nullable="false" length="8" default="new" comment="Status"/>
+        <column xsi:type="int" name="refered_customer_id" padding="10" unsigned="true" nullable="true" identity="false"
+                comment="Refered Customer Id"/>
+        <!-- <column xsi:type="int" name="count" padding="10" unsigned="true" nullable="true" identity="false"
+                comment="Refered Count"/>   -->      
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="refer_id"/>
+        </constraint>
+    </table>
+
+     <table name="customer_entity">
+        <column xsi:type="varchar" name="refer_code" nullable="true" length="255" comment="Refer Code"/>
+    </table>
+</schema>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+ 
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Allure\Affiliate\Block\Adminhtml\Campaign\Edit" name="allure_affiliate_campaign_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Allure\Affiliate\Block\Adminhtml\Campaign\Edit\Tabs" name="allure_affiliate_campaign_tabs">
+                <block class="Allure\Affiliate\Block\Adminhtml\Campaign\Edit\Tab\Campaign" name="allure_affiliate_campaign_edit_tab_campaign"/>
+                <block class="Allure\Affiliate\Block\Adminhtml\Campaign\Edit\Tab\Condition" name="allure_affiliate_campaign_edit_tab_condition"/>
+                <block class="Allure\Affiliate\Block\Adminhtml\Campaign\Edit\Tab\Discount" name="allure_affiliate_campaign_edit_tab_discount"/>
+                <block class="Allure\Affiliate\Block\Adminhtml\Campaign\Edit\Tab\Commissions" name="allure_affiliate_campaign_edit_tab_commissions"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">campaign</argument>
+                    <argument name="block" xsi:type="string">allure_affiliate_campaign_edit_tab_campaign</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">condition_section</argument>
+                    <argument name="block" xsi:type="string">allure_affiliate_campaign_edit_tab_condition</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">discount_section</argument>
+                    <argument name="block" xsi:type="string">allure_affiliate_campaign_edit_tab_discount</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">commission_section</argument>
+                    <argument name="block" xsi:type="string">allure_affiliate_campaign_edit_tab_commissions</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

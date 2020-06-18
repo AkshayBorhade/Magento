@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Custom_Inquiry::listing"
+            title="Inquiry"
+            translate="title"
+            module="Custom_Inquiry"
+            sortOrder="10"
+            parent="Custom_Appointment::appointment"
+            action="inquiry/index/index"
+            resource="Custom_Inquiry::inquiry"
+        />
+      
+    </menu>
+</config>

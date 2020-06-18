@@ -1,0 +1,40 @@
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="inquiry_listing_data_source" xsi:type="string">Custom\Inquiry\Model\ResourceModel\Inquiry\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Custom\Inquiry\Model\ResourceModel\Inquiry\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">inquiry</argument>
+            <argument name="eventPrefix" xsi:type="string">size_data_sizegrid_collection</argument>
+            <argument name="eventObject" xsi:type="string">size_data_sizegrid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Custom\Inquiry\Model\ResourceModel\Inquiry</argument>
+        </arguments>
+    </type>
+    
+    <virtualType name="InquiryGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Custom\Inquiry\Model\ResourceModel\Inquiry\Grid\Collection</argument>
+        </arguments>
+    </virtualType>
+
+    <preference for="Custom\Inquiry\Api\Inquiry"
+        type="Custom\Inquiry\Model\InquirytModel"/>
+    
+
+</config>

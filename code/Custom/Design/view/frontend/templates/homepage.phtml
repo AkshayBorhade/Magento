@@ -1,0 +1,74 @@
+<?php $mediaUrl=$block->getMediaUrl(); ?>
+<section class="banner-slider section" id="fullpage">
+    <div class="owl-carousel" id="banner-slide">
+        
+        <div class="fullHt item" style="background-image:url('<?php echo $mediaUrl; ?>/images/slide1.jpg');">
+            <div class="text-caption">
+                <div class="container">
+                </div>
+            </div>
+        </div>
+
+        <div class="fullHt item" style="background-image:url('<?php echo $mediaUrl; ?>/images/slide2.jpg');">
+            <div class="text-caption">
+                <div class="container">
+                </div>
+            </div>
+        </div>
+
+        <div class="fullHt item" style="background-image:url('<?php echo $mediaUrl; ?>/images/slide3.jpg');">
+            <div class="text-caption">
+                <div class="container">
+                </div>
+            </div>
+        </div>
+
+
+            </div>
+</section>
+<div>
+    <a href="#" id="click-me">Click Me</a>
+</div>
+
+
+<div id="popup-modal" >
+    yes I am the modal.
+</div>
+<script type="text/javascript">
+     require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function(
+            $,
+            modal
+        ) {
+            
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                buttons: [{
+                    text: $.mage.__('Continue'),
+                    class: 'mymodal1',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }]
+            };
+
+            var popup = modal(options, $('#popup-modal'));
+            $("#click-me").on('click',function(){
+
+                $("#popup-modal").modal("openModal");
+
+                $.ajax({url: BASE_URL+"listing/page/index", success: function(result){
+               $("#popup-modal").html(result);
+
+                }});
+
+            });
+        }
+    );
+</script>

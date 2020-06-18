@@ -1,0 +1,74 @@
+<body onload="startTime()">
+<ul class="header links">    
+    <li class="authorization-link" data-label="or">
+       <!-- <?php /*echo date("h:i:sa");*/echo $block->getWelcomeMessage(); ?> -->
+       <div id="txt"></div>
+    </li>
+    <li class="authorization-link" data-label="or">
+        <a href="#" id="entry">Sign In</a>
+    </li>
+    <li>
+        <a href="customer/account/create/">Create an Account </a>
+    </li>
+</ul>
+
+<div id="popup-modal" >
+    <h1>Welcome Dude</h1>
+    <h4>Wait For Moment...</h4>
+</div>
+</body>
+<script type="text/javascript">
+     require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function(
+            $,
+            modal
+        ) {
+            
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                buttons: [{
+                    text: $.mage.__('Continue'),
+                    class: 'mymodal1',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }]
+            };
+
+            var popup = modal(options, $('#popup-modal'));
+            $("#entry").on('click',function(){
+
+                $("#popup-modal").modal("openModal");
+
+                $.ajax({url: BASE_URL+"entry", success: function(result){
+               $("#popup-modal").html(result);
+
+                }});
+
+            });
+        }
+    );
+
+        function startTime() {
+          var today = new Date();
+          var h = today.getHours();
+          var m = today.getMinutes();
+          var s = today.getSeconds();
+          m = checkTime(m);
+          s = checkTime(s);
+          document.getElementById('txt').innerHTML =
+          h + ":" + m + ":" + s;
+          var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+          if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+          return i;
+        }
+
+</script>

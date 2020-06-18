@@ -1,0 +1,137 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="allure_affiliate_account">
+        <column xsi:type="int" name="account_id" unsigned="true" identity="true" nullable="false" comment="Account ID"/>
+        <column xsi:type="int" name="customer_id" nullable="false" comment="Account Customer ID"/>
+        <column xsi:type="text" name="code" nullable="false"   comment="Account Affiliate Code"/>
+        <column xsi:type="int" name="group_id" comment="Account Affiliate Group"/>
+        <column xsi:type="decimal" name="balance" nullable="false" default= "0" comment="Account Balance"/>
+        <column xsi:type="decimal" name="holding_balance" nullable="false" default= "0" comment="Account Holding Balance"/>
+        <column xsi:type="decimal" name="total_commission" nullable="false" default= "0" comment="Account Total Commission"/>
+        <column xsi:type="decimal" name="total_paid" nullable="false" default= "0" comment="Account Total Paid"/>
+        <column xsi:type="int" name="status" nullable="false" comment="Account Status"/>
+        <column xsi:type="int" name="email_notification"   comment="Account Email Notification"/>
+        <column xsi:type="int" name="parent" comment="Account Referred By"/>
+        <column xsi:type="text" name="tree"   comment="Account Tier Path"/>
+        <column xsi:type="text" name="withdraw_method"   comment="Withdraw method"/>
+        <column xsi:type="text" name="withdraw_information"   comment="Withdraw information"/>
+        <column xsi:type="timestamp" name="created_at" comment="Account Created At"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="account_id"/>
+        </constraint>
+    </table>
+
+    <table name="allure_affiliate_group">
+        <column xsi:type="int" name="group_id" unsigned="true" identity="true" nullable="false" comment="Group ID"/>
+        <column xsi:type="text" name="name" nullable="false"   comment="Group Name"/>
+        <column xsi:type="timestamp" name="created_at"  comment="Group Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="group_id"/>
+        </constraint>
+    </table>
+
+    <table name="allure_affiliate_campaign">
+        <column xsi:type="int" name="campaign_id" unsigned="true" identity="true" nullable="false" comment="Account ID"/>
+        <column xsi:type="text" name="name" nullable="false"   comment="Campaign Name"/>
+        <column xsi:type="text" name="description"   comment="Campaign Description"/>
+        <column xsi:type="int" name="status" nullable="false" comment="Campaign Status"/>
+        <column xsi:type="text" name="website_ids"   nullable="false" comment="Campaign Website IDs"/>
+        <column xsi:type="text" name="affiliate_group_ids"   nullable="false" comment="Campaign Affiliate Groups"/>
+        <column xsi:type="timestamp" name="from_date"  comment="Campaign Active From Date"/>
+        <column xsi:type="timestamp" name="to_date"  comment="Campaign Active To Date"/>
+        <column xsi:type="int" name="display" nullable="false" comment="Campaign Display"/>
+        <column xsi:type="int" name="sort_order"  comment="Campaign Sort Order"/>
+        <column xsi:type="text" name="conditions_serialized"   comment="Campaign Conditions Serialized"/>
+        <column xsi:type="text" name="actions_serialized"   comment="Campaign Actions Serialized"/>
+        <column xsi:type="text" name="commission"   comment="Campaign Commission"/>
+        <column xsi:type="text" name="discount_action"   comment="Campaign Discount Action"/>
+        <column xsi:type="decimal" name="discount_amount" default= '0' comment="Campaign Discount Amount"/>
+        <column xsi:type="int" name="discount_qty" default= '0' comment="Campaign Discount Qty"/>
+        <column xsi:type="int" name="discount_step" default= '0' nullable="false" comment="Campaign Discount Step"/>
+        <column xsi:type="text" name="discount_description"   nullable="false" comment="Campaign Discount Description"/>
+        <column xsi:type="int" name="free_shipping"   comment="Campaign Free Shipping"/>
+        <column xsi:type="int" name="apply_to_shipping"   comment="Campaign Apply To Shipping"/>
+        <column xsi:type="timestamp" name="created_at"  comment="Campaign Created At"/>
+        <column xsi:type="timestamp" name="updated_at"  comment="Campaign Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="campaign_id"/>
+        </constraint>
+    </table>
+
+    <table name="allure_affiliate_transaction">
+        <column xsi:type="int" name="transaction_id" unsigned="true" identity="true" nullable="false" comment="Transaction ID"/>
+        <column xsi:type="int" name="account_id"  nullable="false" comment="Affiliate Account"/>
+        <column xsi:type="int" name="customer_id" nullable="false" comment="Customer ID"/>
+        <column xsi:type="text" name="action"   nullable="false" comment="Action"/>
+        <column xsi:type="int" name="type" nullable="false" comment="Action Type"/>
+        <column xsi:type="decimal" name="amount" comment="Amount"/>
+        <column xsi:type="decimal" name="amount_used" comment="Amount Used"/>
+        <column xsi:type="decimal" name="current_balance" comment="Current Balance"/>
+        <column xsi:type="int" name="status" nullable="false" comment="Status"/>
+        <column xsi:type="text" name="title"   nullable="false" comment="Title"/>
+        <column xsi:type="text" name="order_id"   nullable="false" comment="Order ID"/>
+        <column xsi:type="text" name="order_increment_id"   nullable="false" comment="Order Increment ID"/>
+        <column xsi:type="int" name="store_id" nullable="false" comment="Store ID"/>
+        <column xsi:type="text" name="campaign_id"   comment="Campaign"/>
+        <column xsi:type="timestamp" name="created_at"  comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at"  comment="Updated At"/>
+        <column xsi:type="timestamp" name="holding_to"  comment="Holding Time"/>
+        <column xsi:type="text" name="extra_content"   comment="Content"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="transaction_id"/>
+        </constraint>
+    </table>
+
+    <table name="allure_affiliate_withdraw">
+        <column xsi:type="int" name="withdraw_id" unsigned="true" identity="true" nullable="false" comment="Withdraw ID"/>
+        <column xsi:type="int" name="account_id"  comment="Withdraw Account"/>
+        <column xsi:type="int" name="customer_id" nullable="false" comment="Withdraw Customer ID"/>
+        <column xsi:type="int" name="transaction_id" nullable="false" comment="Withdraw Transaction ID"/>
+        <column xsi:type="decimal" name="amount" comment="Withdraw Amount"/>
+        <column xsi:type="decimal" name="fee" comment="Withdraw Fee"/>
+        <column xsi:type="decimal" name="transfer_amount" comment="Withdraw Transaction Amount"/>
+        <column xsi:type="int" name="status" nullable="false" comment="Withdraw Status"/>
+        <column xsi:type="text" name="payment_method"   nullable="false" comment="Withdraw Payment Method"/>
+        <column xsi:type="text" name="payment_details"   comment="Withdraw Payment Details"/>
+        <column xsi:type="text" name="resolved_at"   comment="Withdraw Resolved At"/>
+        <column xsi:type="timestamp" name="created_at"  comment="Withdraw Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="withdraw_id"/>
+        </constraint>
+    </table>
+
+
+    <table name="allure_affiliate_banner">
+        <column xsi:type="int" name="banner_id" unsigned="true" identity="true" nullable="false" comment="Banner ID"/>
+        <column xsi:type="text" name="title"   nullable="false" comment="Banner Title"/>
+        <column xsi:type="text" name="content"    comment="Banner Content"/>
+        <column xsi:type="text" name="link"    comment="Banner Link"/>
+        <column xsi:type="int" name="status" nullable="false" comment="Banner Status"/>
+        <column xsi:type="int" name="rel_nofollow"   comment="Banner Rel Nofollow"/>
+        <column xsi:type="int" name="campaign_id" nullable="false" comment="Banner Campaign ID"/>
+        <column xsi:type="timestamp" name="created_at"  comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at"  comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="banner_id"/>
+        </constraint>
+    </table>
+
+
+    <table name="sales_order">
+        <column xsi:type="text" name="affiliate_key"    nullable="true" comment="Affiliate Key"/>
+        <column xsi:type="text" name="affiliate_commission"    nullable="true" comment="Affiliate Commission"/>
+        <column xsi:type="decimal" name="affiliate_discount_amount"  nullable="true" comment="Affiliate Discount Amount"/>
+        <column xsi:type="decimal" name="base_affiliate_discount_amount"  nullable="true" comment="Base Affiliate Discount Amount"/>
+        <column xsi:type="text" name="affiliate_campaigns"    nullable="true" comment="Affiliate Campaign Ids"/>
+    </table>
+
+    <table name="sales_invoice">
+        <column xsi:type="decimal" name="affiliate_discount_amount"  nullable="true" comment="Affiliate Discount Amount"/>
+        <column xsi:type="decimal" name="base_affiliate_discount_amount"  nullable="true" comment="Base Affiliate Discount Amount"/>
+    </table>
+
+    <table name="sales_creditmemo">
+        <column xsi:type="decimal" name="affiliate_discount_amount"  nullable="true" comment="Affiliate Discount Amount"/>
+        <column xsi:type="decimal" name="base_affiliate_discount_amount"  nullable="true" comment="Base Affiliate Discount Amount"/>
+    </table>
+
+</schema>

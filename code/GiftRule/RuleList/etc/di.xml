@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @author Dhirajkumar Deore    
+* Copyright © 2018 Magento. All rights reserved.
+* See COPYING.txt for license details.
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="giftrule_rulelist_listing_data_source" xsi:type="string">GiftRule\RuleList\Model\ResourceModel\Items\Grid\Collection</item>                
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="GiftRule\RuleList\Model\ResourceModel\Items\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">custom_gift</argument>
+            <argument name="eitemsPrefix" xsi:type="string">giftrule_rulelist_grid_collection</argument>
+            <argument name="eitemsObject" xsi:type="string">giftrule_rulelist_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">GiftRule\RuleList\Model\ResourceModel\Items</argument>
+        </arguments>
+    </type>
+
+
+    <type name="GiftRule\RuleList\Controller\Adminhtml\Items\Image\Upload">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">ItemsImageUpload</argument>
+        </arguments>
+    </type>
+
+
+    <virtualType name="ItemsImageUpload" type="Goods\Items\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">giftrule_rulelist</argument>
+            <argument name="basePath" xsi:type="string">giftrule_rulelist</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>  
+
+    <virtualType name="ItemsGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    
+    <virtualType name="ItemsGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">GiftRule\RuleList\Model\ResourceModel\Items\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">ItemsGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    
+</config>

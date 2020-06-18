@@ -1,0 +1,9 @@
+img {
+    /* margin-left: 24%; */
+}
+.menu-wrapper .logo .logo-img {
+    height: 5.1rem;
+    transition: -webkit-filter .2s linear,filter .2s linear,transform .1s linear;
+    width: 5.5rem;
+    /* float: right; */
+}

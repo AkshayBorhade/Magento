@@ -1,0 +1,21 @@
+{
+    "Allure_Refer": {
+        "column": {
+            "refer_id": true,
+            "customer_id": true,
+            "refer_date": true,
+            "email": true,
+            "referral_id": true,
+            "status": true,
+            "refered_customer_id": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "customer_entity": {
+        "column": {
+            "refer_code": true
+        }
+    }
+}

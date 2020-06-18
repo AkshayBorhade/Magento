@@ -1,0 +1,10 @@
+ <customer_logged_out>
+      <reference name="top.links">
+          <action method="addLink" translate="label title" module="customer">
+               <label>Wholesale</label>
+               <url>http://www.YourSite.com/wholesale</url>
+               <position>100</position>
+          </action>
+      </reference>
+      <remove name="reorder"></remove>
+    </customer_logged_out>

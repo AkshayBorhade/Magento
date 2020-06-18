@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">appointment_form.appointment_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Appointment Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save_and_continue" class="Custom\Appointment\Block\Adminhtml\Appointment\Edit\SaveAndContinueButton"/>
+            <button name="save" class="Custom\Appointment\Block\Adminhtml\Appointment\Edit\SaveButton"/>
+            <button name="delete" class="Custom\Appointment\Block\Adminhtml\Appointment\Edit\DeleteButton"/>
+            <button name="back" class="Custom\Appointment\Block\Adminhtml\Appointment\Edit\BackButton"/>
+        </buttons>
+        <namespace>appointment_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>appointment_form.appointment_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="appointment_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="appointment/index/save"/>
+        </settings>
+        <dataProvider class="Custom\Appointment\Model\Appointment\DataProvider" name="appointment_form_data_source">
+            <settings>
+                <primaryFieldName>app_id</primaryFieldName>
+                <requestFieldName>id</requestFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label/>
+        </settings>
+
+        <field name="name" sortOrder="1" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">appointment_form_data</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Name</label>
+                <dataScope>name</dataScope>
+            </settings>
+        </field>
+        
+        
+        <field name="email" sortOrder="2" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">appointment_form_data</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Email</label>
+                <dataScope>email</dataScope>
+            </settings>
+        </field>
+        
+        
+        <field name="phone" sortOrder="3" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">appointment_form_data</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Phone</label>
+                <dataScope>phone</dataScope>
+            </settings>
+        </field>
+        
+        
+        <field name="appointmentdate" sortOrder="5" formElement="date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">appointment_form_data</item>
+                    <item name="options" xsi:type="array">
+                        <item name="dateFormat" xsi:type="string">yyyy-MM-dd</item>
+                        <item name="timeFormat" xsi:type="string">HH:mm:ss</item>
+                        <item name="showsTime" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Appointment date</label>
+                <dataScope>appointmentdate</dataScope>
+            </settings>
+        </field>
+        
+        
+        
+    </fieldset>
+</form>

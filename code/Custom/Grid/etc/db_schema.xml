@@ -1,0 +1,16 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+   <table name="employee">
+       <column xsi:type="int" name="employee_id" unsigned="true" identity="true" nullable="false" comment="EmployeeId"/>
+       <column xsi:type="text" name="name" nullable="false"  comment="Name"/>
+       <column xsi:type="text" name="salary" nullable="false" comment="Salary"/>
+       <column xsi:type="text" name="address" nullable="false" comment="Address"/>
+       <column xsi:type="text" name="country" nullable="false" comment="Country"/>
+       <column xsi:type="timestamp" name="created_time" default="CURRENT_TIMESTAMP"  comment="Created at"/>
+       <column xsi:type="timestamp" name="update_time" disabled="true"  comment="Updated at"/>
+       <column xsi:type="text" name="budget" nullable="false" comment="Budget"/>
+       <constraint xsi:type="primary" referenceId="PRIMARY">
+           <column name="employee_id"/>
+       </constraint>
+       
+   </table>
+</schema>

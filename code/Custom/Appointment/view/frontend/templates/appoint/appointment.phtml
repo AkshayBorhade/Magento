@@ -1,0 +1,72 @@
+<div class="page-title-wrapper">
+    <h1 class="page-title">
+        <span class="base" data-ui-id="page-title-wrapper">
+            Appointment page
+        </span>    
+    </h1>
+</div>
+
+<fieldset class="fieldset create info">
+    
+    <a href="<?php echo $block->getListUrl() ?>">View Appointments</a>
+    <br><br><br>
+    <legend class="legend"><span>Information</span></legend>
+    
+    <br>
+
+    <form data-mage-init='{"validation": {}}' action="<?php echo $block->getFormUrl() ?>" class="form" id="appointmentForm" method="post" autocomplete="off">
+
+        <div class="field field-name-firstname required">
+            <label class="label"><span>Name</span></label>
+            <div class="control">
+                <input type="text" name="name" value="" title="Name" class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true">
+            </div>
+        </div>
+
+        <div class="field field-name-firstname required">
+            <label class="label"><span>Email</span></label>
+            <div class="control">
+                <input type="email" name="email" value="" title="Email" class="input-text required-entry" data-validate="{required:true, 'validate-email':true}" autocomplete="off" aria-required="true">
+            </div>
+        </div>
+
+        <div class="field field-name-firstname required">
+            <label class="label"><span>Phone</span></label>
+            <div class="control">
+                <input type="text" name="phone" value="" title="Phone" class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true">
+            </div>
+        </div>
+
+        <div class="field field-name-firstname required">
+            <label class="label"><span>Appointment Date</span></label>
+            <div class="control">
+                <input type="text" name="appointmentDate" value="" title="Appointment Date" class="input-text required-entry" data-validate="{required:true}" aria-required="true" id="calendar_inputField">
+            </div>
+        </div>
+
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" class="action submit primary" title="Fix now"><span>Submit</span></button>
+            </div>
+        </div>
+
+    </form>
+
+</fieldset>
+
+<script type="text/javascript">
+    require([
+        'jquery',
+        'mage/mage',
+        'mage/calendar'
+    ], function (jQuery) {
+
+        jQuery("#calendar_inputField").calendar({
+            buttonText: "<?php echo __('Select Date') ?>",
+        });
+
+        var dataForm = jQuery('#appointmentForm');
+        dataForm.mage('validation', {});
+
+    });
+</script>

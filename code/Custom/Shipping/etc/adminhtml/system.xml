@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="carriers" translate="label" type="text" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="simpleshipping" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Fortune Shipping Method</label>
+                
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                
+                <field id="price" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Price</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+               
+                <field id="uplimit" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>UpLimit</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                
+                <field id="lowlimit" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>LowLimit</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>

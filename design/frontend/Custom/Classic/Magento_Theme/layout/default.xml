@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    
+    <head>
+        <css src="Magento_Theme::css/owl.carousel.css" />
+        <css src="Magento_Theme::css/owl.theme.css" />
+        <css src="Magento_Theme::css/style.css" />
+        <script src="Magento_Theme::js/custom.js"/>
+    </head>
+    
+    <body>
+        
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                <argument name="logo_img_width" xsi:type="number">300</argument>
+                <argument name="logo_img_height" xsi:type="number">100</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="register-link" remove="true" />           
+        <referenceBlock name="authorization-link" remove="true" />      
+        <referenceBlock name="wish-list-link" remove="true" />          
+        <referenceBlock name="my-account-link" remove="true" /> 
+        <!-- <referenceBlock name="header.panel.wrapper" remove="true"/> -->
+    
+        <container name="custom-header-search" as="custom-header-search-container" htmlClass="custom_search_container" htmlTag="div">
+        </container>
+        
+        <container name="custom-header-links" as="custom-header-links-container" htmlClass="custom_links_container" htmlTag="div">
+        </container>
+        
+        
+        <move element="top.search" destination="custom-header-search"/>
+
+        <move element="custom-header-search" destination="header-wrapper" after="logo"/> 
+        <move element="custom-header-links" destination="header-wrapper" after="custom-header-search"/>
+        
+        
+        
+    
+        <container name="custom-header" as="custom-header" htmlClass="head_links_container" htmlTag="div" before="main.content">
+            <block class="Custom\Design\Block\Html\HeadLinks" name="custom_header" as="custom_head_links" template="Custom_Design::html/head_links.phtml"  cacheable="false"/>
+        </container>
+            
+        <move element="custom-header" destination="header-wrapper" after="custom-header-search"/>
+        
+        
+    </body>
+</page>

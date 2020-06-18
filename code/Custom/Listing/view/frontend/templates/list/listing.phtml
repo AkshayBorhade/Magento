@@ -1,0 +1,44 @@
+<div class="page-title-wrapper">
+    <h1 class="page-title">
+        <span class="base" data-ui-id="page-title-wrapper">
+            Listing page
+        </span>    
+    </h1>
+</div>
+
+<fieldset class="fieldset create info">
+    <legend class="legend"><span>Product Information</span></legend><br>
+    <table>
+        <?php
+        $productList = $block->getListing();
+
+        echo "<tr><th>Name</th>".
+            "<th>Price</th>".
+            "<th>Qty</th></tr>";
+
+        foreach ($productList as $plist) {
+            echo "<tr><td>".$plist['sku']."</td>".
+            "<td>".$plist['price']->getPrice()."</td>".
+            "<td>".$plist['qty']->getQty()."</td>";
+        }
+        ?>
+    </table>
+
+</fieldset>
+
+<fieldset class="fieldset create info">
+    <legend class="legend"><span>User Information</span></legend><br>
+    <table>
+       <?php
+        $userList = $block->getUser();
+
+        echo "<tr><th>Name</th><th>E-mail</th></tr>";
+
+        foreach ($userList as $ulist) {
+            echo "<tr><td>".$ulist->getName()."</td>".
+            "<td>".$ulist->getEmail()."</td></tr>";
+        }
+        ?>
+    </table> 
+
+</fieldset>

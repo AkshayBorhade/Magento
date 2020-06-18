@@ -1,0 +1,115 @@
+ 			
+<?php if($block->getLogin() ) { ?>
+		<h1 style="color: #ff6e17"> <?php echo $block->getMyCode(); ?> </h1>  
+			<style>
+			.tooltip {
+			  position: relative;
+			  display: inline-block;
+			}
+
+			.tooltip .tooltiptext {
+			  visibility: hidden;
+			  width: 140px;
+			  background-color: #555;
+			  color: #fff;
+			  text-align: center;
+			  border-radius: 6px;
+			  padding: 5px;
+			  position: absolute;
+			  z-index: 1;
+			  bottom: 150%;
+			  left: 50%;
+			  margin-left: -75px;
+			  opacity: 0;
+			  transition: opacity 0.3s;
+			}
+
+			.tooltip .tooltiptext::after {
+			  content: "";
+			  position: absolute;
+			  top: 100%;
+			  left: 50%;
+			  margin-left: -5px;
+			  border-width: 5px;
+			  border-style: solid;
+			  border-color: #555 transparent transparent transparent;
+			}
+
+			.tooltip:hover .tooltiptext {
+			  visibility: visible;
+			  opacity: 1;
+			}
+			</style>
+			<input type="text" value="<?php echo $block->getBase();?>?customer_id=<?php echo $block->getCustomer(); ?>" id="myInput"> <br><br>
+
+			<div class="tooltip">
+			<button onclick="myFunction()" onmouseout="outFunc()">
+			  <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+			  Refer And Earn
+			  </button>
+			</div>
+
+			<script>
+			function myFunction() {
+			  var copyText = document.getElementById("myInput");
+			  copyText.select();
+			  copyText.setSelectionRange(0, 99999);
+			  document.execCommand("copy");
+			  
+			  var tooltip = document.getElementById("myTooltip");
+			  tooltip.innerHTML = "Copied: " + copyText.value;
+			}
+
+			function outFunc() {
+			  var tooltip = document.getElementById("myTooltip");
+			  tooltip.innerHTML = "Copy to clipboard";
+			}
+			</script>
+
+			<br><br>
+			<form action="<?php echo $block->getFormUrl() ?>" method="POST">
+				Here Enter Friend's Refer Code:: <br>
+				<input type="text" name="code" placeholder="Enter Refer Code"><br><br>
+				<input type="submit" name="submit" value="Enter Code">
+			</form>
+<!--
+			<div class="page-title-wrapper">
+			    <h1 class="page-title">
+			        <span class="base" data-ui-id="page-title-wrapper">
+			            My Refer History
+			        </span>    
+			    </h1>
+			</div>
+
+			<fieldset class="fieldset create info">
+			    <legend class="legend"><span>Information</span></legend><br>
+			    <table>
+			        <tr><td><b>Name</b></td>
+			            <td><b>ID</b></td>
+			            <td><b>Refered Date</b></td>
+			            <td><b>Status</b></td>
+			            <td><b>Email</b></td></tr>
+			        <?php
+			        $ReferList = $block->getRefer();
+			        // foreach ($ReferList as $refer) {
+			        //     echo "<tr><td>".$refer->getName()."</td>".
+			        //     "<td>".$refer->getReferedCustomerId()."</td>".
+			        //     "<td>".$refer->getReferDate()."</td>".
+			        //     "<td>".$refer->getStatus()."</td>".
+			        //     "<td>".$refer->getEmail()."</td>";
+			        // }
+			        ?>
+			    </table> 
+			    <br>
+			     <legend class="legend"></legend><br>
+			</fieldset>
+-->
+
+
+<?php	} 
+else{ ?>
+	<h1 style="color: #ff6e17"> Must Have Login To Access This. </h1>
+
+	<?php } ?>
+
+

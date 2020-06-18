@@ -1,0 +1,19 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="appointment">
+        <column xsi:type="int" name="app_id" unsigned="true" identity="true" nullable="false" comment="Id"/>
+        <column xsi:type="text" name="name" nullable="false"  comment="Name"/>
+        <column xsi:type="text" name="phone" nullable="false" comment="Phone"/>
+        <column xsi:type="text" name="email" nullable="false" comment="Email"/>
+        <column xsi:type="timestamp" name="appointmentdate" nullable="false" comment="Appointment date"/>
+        <column xsi:type="timestamp" name="created_time" default="CURRENT_TIMESTAMP"  comment="Created at"/>
+        <column xsi:type="timestamp" name="update_time" disabled="true"  comment="Updated at"/> 
+        <column xsi:type="timestamp" name="date_closed" comment="Time of event" disabled="true"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="app_id"/>
+        </constraint>
+    </table> 
+
+    <table name="quote">
+        <column xsi:type="text" name="custom_field" nullable="false" comment="CustomField"/>
+    </table>
+</schema>

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Allure_Affiliate::menu" 
+            title="Allure" 
+            module="Allure_Affiliate" 
+            sortOrder="50" 
+            resource="Allure_Affiliate::menu"/>
+        <add id="Allure_Affiliate::affiliate" 
+            title="Affiliate" 
+            module="Allure_Affiliate" 
+            sortOrder="20" 
+            resource="Allure_Affiliate::affiliate" 
+            parent="Allure_Affiliate::menu"/>
+        <add id="Allure_Affiliate::account" 
+            title="Manage Accounts" 
+            module="Allure_Affiliate" 
+            sortOrder="10" 
+            action="affiliate/account" 
+            resource="Allure_Affiliate::account" 
+            parent="Allure_Affiliate::affiliate"/>
+        <add id="Allure_Affiliate::group" 
+            title="Affiliate Groups" 
+            module="Allure_Affiliate" 
+            sortOrder="20" 
+            action="affiliate/group" 
+            resource="Allure_Affiliate::group" 
+            parent="Allure_Affiliate::affiliate"/>
+        <add id="Allure_Affiliate::campaign" 
+            title="Campaigns" 
+            module="Allure_Affiliate" 
+            sortOrder="30" 
+            action="affiliate/campaign" 
+            resource="Allure_Affiliate::campaign" 
+            parent="Allure_Affiliate::affiliate"/>
+        <add id="Allure_Affiliate::banner" 
+            title="Banners" 
+            module="Allure_Affiliate" 
+            sortOrder="40" 
+            action="affiliate/banner" 
+            resource="Allure_Affiliate::banner" 
+            parent="Allure_Affiliate::affiliate"/>
+        <add id="Allure_Affiliate::withdraw" 
+            title="Withdraws" 
+            module="Allure_Affiliate" 
+            sortOrder="50" 
+            action="affiliate/withdraw" 
+            resource="Allure_Affiliate::withdraw" 
+            parent="Allure_Affiliate::affiliate"/>
+        <add id="Allure_Affiliate::transaction" 
+            title="Transactions" 
+            module="Allure_Affiliate" 
+            sortOrder="60" 
+            action="affiliate/transaction" 
+            resource="Allure_Affiliate::transaction" 
+            parent="Allure_Affiliate::affiliate"/>
+        <add id="Allure_Affiliate::configuration" 
+            title="Configuration" 
+            module="Allure_Affiliate" 
+            sortOrder="100" 
+            action="adminhtml/system_config/edit/section/affiliate" 
+            resource="Allure_Affiliate::configuration" 
+            parent="Allure_Affiliate::affiliate"/>
+    </menu>
+</config>

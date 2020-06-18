@@ -1,0 +1,22 @@
+{
+    "appointment": {
+        "column": {
+            "app_id": true,
+            "name": true,
+            "phone": true,
+            "email": true,
+            "appointmentdate": true,
+            "created_time": true,
+            "update_time": true,
+            "date_closed": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "quote": {
+        "column": {
+            "custom_field": true
+        }
+    }
+}

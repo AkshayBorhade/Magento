@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="gift_coupon_post_listing_data_source" xsi:type="string">Gift\Coupon\Model\ResourceModel\Post\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Gift\Coupon\Model\Resource\Post\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">custom_gift</argument>
+            <argument name="resource" xsi:type="string">Gift\Coupon\Model\ResourceModel\Post</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\SalesRule\Model\ResourceModel\Rule\Collection">
+        <plugin name="salesrule-collection-filter" type="Gift\Coupon\Plugin\SalesRule\Collection" sortOrder="1"/>
+    </type>
+</config>

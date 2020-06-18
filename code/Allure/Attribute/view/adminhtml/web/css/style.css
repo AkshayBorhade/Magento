@@ -1,0 +1,31 @@
+img {
+    /* margin-left: 24%; */
+}
+
+
+
+
+.menu-wrapper .logo .logo-img {
+    height: 5.1rem;
+    transition: -webkit-filter .2s linear,filter .2s linear,transform .1s linear;
+    width: 5.5rem;
+    /* float: right; */
+}
+.admin__menu .level-0._active>a, .admin__menu .level-0:hover>a {
+    color: blanchedalmond;
+}
+.admin__menu .level-0>a {
+    color: blanchedalmond;
+    display: block;
+    font-size: 1rem;
+    letter-spacing: .025em;
+    min-height: 6.2rem;
+    padding: 1.2rem .5rem .5rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color .1s linear;
+    word-wrap: break-word;
+    z-index: 700;
+}

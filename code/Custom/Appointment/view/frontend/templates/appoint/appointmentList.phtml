@@ -1,0 +1,24 @@
+<div class="page-title-wrapper">
+    <h1 class="page-title">
+        <span class="base" data-ui-id="page-title-wrapper">
+            Appointment list page
+        </span>    
+    </h1>
+</div>
+
+<fieldset class="fieldset create info">
+    <legend class="legend"><span>Information</span></legend><br>
+    <table>
+        <?php
+        $appointList = $block->getAppointments();
+
+        foreach ($appointList as $appoint) {
+            echo "<tr><td>".$appoint->getName()."</td>".
+            "<td>".$appoint->getPhone()."</td>".
+            "<td>".$appoint->getEmail()."</td>".
+            "<td>".$appoint->getAppointmentdate()."</td></tr>";
+        }
+        ?>
+    </table>
+
+</fieldset>

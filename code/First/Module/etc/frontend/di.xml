@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<!-- For Magento < 2.2 -->
+	<preference for="First\Module\Api\PencilInterface"
+		        type="First\Module\Model\Pencil" />
+
+	<preference for="First\Module\Api\Color"
+				type="First\Module\Model\Yellow" />
+	<preference for="First\Module\Api\Size"
+				type="First\Module\Model\Normal" />
+</config>

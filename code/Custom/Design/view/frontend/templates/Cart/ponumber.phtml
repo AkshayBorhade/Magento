@@ -1,0 +1,39 @@
+
+
+<input type="text" name="quote" id="custom_field"><br><br>
+<button id="custom_button">save</button>
+
+<script type="text/javascript">
+    require([
+        'jquery',
+        'mage/mage',
+        'mage/calendar'
+    ], function (jQuery) {
+
+      
+    	jQuery(document).ready(function(){
+
+
+    		jQuery('#custom_button').click(function(){
+
+
+    				//alert(1);
+
+    				var custom_field=jQuery('#custom_field').val();
+ 					jQuery.ajax(
+ 						{
+ 							url: BASE_URL+"appointment/index/custom",
+ 							type:"POST",
+ 							data:{'data':custom_field},
+ 							success: function(result){	
+  						
+  						}
+  				});
+    		});
+
+
+    	});
+
+    });
+</script>
+

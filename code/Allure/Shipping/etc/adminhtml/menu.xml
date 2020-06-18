@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+      <add id="Allure_Shipping::greetings" title="Greetings" translate="title" module="Allure_Shipping" parent="Magento_Backend::content" sortOrder="50" dependsOnModule="Allure_Shipping" resource="Allure_Shipping::greetings"/>
+
+      <add id="Allure_Shipping::greetings_helloworld" title="Hello World" translate="title" module="Allure_Shipping" parent="Allure_Shipping::greetings" sortOrder="10" dependsOnModule="Allure_Shipping" action="shipping/helloworld" resource="Allure_Shipping::greetings"/>
+    </menu>
+</config>

@@ -1,0 +1,17 @@
+{
+    "inquiry": {
+        "column": {
+            "inqu_id": true,
+            "name": true,
+            "phone": true,
+            "email": true,
+            "inquirydate": true,
+            "inquiry": true,
+            "created_time": true,
+            "update_time": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

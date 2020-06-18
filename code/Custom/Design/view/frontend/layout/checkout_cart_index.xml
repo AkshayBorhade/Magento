@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+   
+        <referenceContainer name="cart.summary">
+            <block name="summary.custom.block.ponumber" class="Custom\Design\Block\Cart\Ponumber"  template="Cart/ponumber.phtml" after="checkout.cart.summary.title" />
+        </referenceContainer>
+        
+    </body>
+</page>

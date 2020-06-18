@@ -1,0 +1,28 @@
+<div class="page-title-wrapper">
+    <h1 class="page-title">
+        <span class="base" data-ui-id="page-title-wrapper">
+            Inquiry list page
+        </span>    
+    </h1>
+</div>
+
+<fieldset class="fieldset create info">
+    <legend class="legend"><span>Information</span></legend><br>
+    <table>
+        <?php
+        $inquiryList = $block->getInquiry();
+
+        foreach ($inquiryList as $inqu) {
+            echo "<tr><td>".$inqu->getName()."</td>".
+            "<td>".$inqu->getPhone()."</td>".
+            "<td>".$inqu->getEmail()."</td>".
+            "<td>".$inqu->getAppointmentdate()."</td>".
+            "<td>".$inqu->getInquiry()."</td></tr>";
+        }
+        ?>
+    </table> 
+    <br>
+     <legend class="legend"></legend><br>
+<a href="<?php echo $block->getBack() ?>">Back</a>
+
+</fieldset>

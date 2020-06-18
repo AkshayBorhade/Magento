@@ -1,0 +1,40 @@
+/*////////////// Header section ////////////*/
+
+.header.content .custom_search_container{
+    float: left;
+    width:50%;
+}
+.header.content .custom_search_container .block.block-search{
+    width: 60%;
+    float: none;
+    margin: 0 auto;
+}
+
+#search_mini_form .field.search .control #search{
+    float: none;
+    padding: 20px;
+}
+    
+#search_mini_form .actions .action.search{
+    margin: 6px;
+}
+
+/*///////////// Banner slider //////////////*/
+
+#banner-slide .owl-item .fullHt.item{
+    height: 500px;
+    background-size: 100% 100%;
+}
+
+.head_links_container ul.header.links{
+    list-style-type: none;
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+
+.head_links_container ul.header.links li{
+    float: left;
+    padding-left: 10px;
+}
+
