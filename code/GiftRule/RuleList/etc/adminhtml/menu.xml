@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="GiftRule_RuleList::giftrule_rulelist"
+             title="GiftRule"
+             translate="title"
+             module="GiftRule_RuleList"
+             sortOrder="60"
+             resource="GiftRule_RuleList::giftrule_rulelist"
+        />
+        <add
+            id="GiftRule_RuleList::listing"
+            title="RuleList"
+            translate="title"
+            module="GiftRule_RuleList"
+            sortOrder="20"
+            parent="GiftRule_RuleList::giftrule_rulelist"
+            action="giftrule_rulelist/index/index"
+            resource="GiftRule_RuleList::giftrule_rulelist"
+        />
+    </menu>
+</config>

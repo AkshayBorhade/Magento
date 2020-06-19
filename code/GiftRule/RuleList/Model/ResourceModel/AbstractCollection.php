@@ -1,9 +1,5 @@
 <?php
-/**
-* @author Dhirajkumar Deore    
-* Copyright © 2018 Magento. All rights reserved.
-* See COPYING.txt for license details.
-*/
+
 namespace GiftRule\RuleList\Model\ResourceModel;
 
 abstract class AbstractCollection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection

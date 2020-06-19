@@ -1,11 +1,5 @@
 <?php
 
-////////////////////////////////////////////
-// Created By : Akshay Jadhav
-// IP : Order object 
-// Purpose : To generate auto coupon code & save to customtable .
-////////////////////////////////////////////
-
 namespace Gift\Coupon\Observer;
 
 use Magento\Framework\Event\Observer as EventObserver;
@@ -48,8 +42,6 @@ class SaveDataToOrderObserver implements ObserverInterface {
         if ($customerSession->isLoggedIn()) {
             $customerName = $customerSession->getCustomer()->getName();
         }
-
-
         $pcnt = 0;
         $couponMsg = "";
 
@@ -158,7 +150,7 @@ class SaveDataToOrderObserver implements ObserverInterface {
                         )
                         ->setFrom([
                             'name' => 'Akshay',
-                            'email' => 'akshayjadhavp28@gmail.com',
+                            'email' => 'code@allureinc.co',
                         ])
                         ->addTo($customerEmail, 'Customer')
                         ->getTransport();

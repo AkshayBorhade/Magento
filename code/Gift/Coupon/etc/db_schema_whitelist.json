@@ -1,0 +1,23 @@
+{
+    "custom_gift": {
+        "column": {
+            "id": true,
+            "title": true,
+            "code": true,
+            "product_id": true,
+            "order_id": true,
+            "customer_id": true,
+            "created_at": true,
+            "status": true,
+            "exp_date": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "salesrule": {
+        "column": {
+            "gift_card_rule": true
+        }
+    }
+}
